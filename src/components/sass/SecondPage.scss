@@ -112,7 +112,10 @@
 .none {
   display: none;
 }
-
+.active-styles {
+  background-color: u.$Light-blue;
+  border: 2px solid u.$Marine-blue;
+}
 @media (min-width: 700px) {
   .box {
     display: flex;

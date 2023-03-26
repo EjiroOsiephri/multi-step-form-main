@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import React, { useState, useRef } from 'react'
 import "./sass/FirstPage.scss"
 import { Link } from "react-router-dom"
-import { useNavigate } from 'react-router-dom'
 import "./sass/SecondPage.scss"
 import Arcade from "./images/icon-arcade.svg"
 import Advanced from "./images/icon-advanced.svg"
@@ -10,28 +10,40 @@ import "./ThirdPage"
 import ThirdPage from './ThirdPage'
 
 const SecondPage = () => {
-    const [slider, setSlider] = useState(false)
     const Navigate = useNavigate()
+    const [boxText, setBoxText] = useState("");
+    const [boxTextTwo, setBoxTextTwo] = useState("");
+    const [boxTextThree, setBoxTextThree] = useState("");
 
     const [isToggled, setIsToggled] = useState(false);
-
-    const clickHandler = () => {
-        setIsToggled(!isToggled);
-    };
 
     const circleStyle = {
         transform: isToggled ? 'translateX(1.8em)' : 'translateX(0)',
     };
+    const [activeBoxes, setActiveBoxes] = useState('');
+
+    const [activeBox, setActiveBox] = useState(isToggled ? "$90/yr" : "$9/mo");
+    const [activeBoxTwo, setActiveBoxTwo] = useState(isToggled ? "$120/yr" : "$12/mo");
+    const [activeBoxThree, setActiveBoxThree] = useState(isToggled ? "$150/yr" : "$15/mo");
+
+    const handleBoxClick = (index, boxTextValue) => {
+        setActiveBoxes(index);
+        setBoxText(boxTextValue)
+        setBoxTextTwo(boxTextValue)
+        setBoxTextThree(boxTextValue)
+    }
 
 
-    console.log(isToggled);
+    const clickHandler = () => {
+        setIsToggled(!isToggled);
+        setActiveBox(isToggled ? "$9/mo" : "$90/yr");
+        setActiveBoxTwo(isToggled ? "$12/mo" : "$120/yr");
+        setActiveBoxThree(isToggled ? "$15/mo" : "$150/yr");
+    };
+
+
     return (
-
         <div className="container">
-
-
-
-
             <div className="first-container">
                 <div className="button-container">
                     <div className="first-btn">
@@ -73,33 +85,33 @@ const SecondPage = () => {
                 <h4>You have the option of monthly or yearly billing.
                 </h4>
                 <div className="box">
-                    <div className="box-container">
+                    <div className={activeBoxes === 0 ? 'box-container active-styles' : 'box-container'} onClick={() => handleBoxClick(0, activeBox)}>
                         <div className="img">
                             <img src={Arcade} alt="" />
                         </div>
                         <div className="step-two-flex">
                             <h3>Arcade</h3>
-                            <p>{isToggled ? "$90/yr" : "$9/mo"}</p>
+                            <p>{activeBox}</p>
                             <p className='yearly-payment'>{isToggled && '2 Months Free'}</p>
                         </div>
                     </div>
-                    <div className="box-container">
+                    <div className={activeBoxes === 1 ? 'box-container active-styles' : 'box-container'} onClick={() => handleBoxClick(1, activeBoxTwo)}>
                         <div className="img">
                             <img src={Advanced} alt="" />
                         </div>
                         <div className="step-two-flex">
                             <h3>Advanced</h3>
-                            <p> {isToggled ? "$120/yr" : "$12/mo"}</p>
+                            <p >{activeBoxTwo}</p>
                             <p className='yearly-payment'>{isToggled && '2 Months Free'}</p>
                         </div>
                     </div>
-                    <div className="box-container">
+                    <div className={activeBoxes === 2 ? 'box-container active-styles' : 'box-container'} onClick={() => handleBoxClick(2, activeBoxThree)}>
                         <div className="img">
                             <img src={Pro} alt="" />
                         </div>
                         <div className="step-two-flex">
                             <h3>Pro</h3>
-                            <p> {isToggled ? "$150/yr" : "$15/mo"}</p>
+                            <p >{activeBoxThree}</p>
                             <p className='yearly-payment'>{isToggled && '2 Months Free'}</p>
                         </div>
                     </div>
@@ -113,7 +125,7 @@ const SecondPage = () => {
                     <p className={isToggled ? "toggler--light" : "toggler--dark"}>Yearly</p>
                 </div>
                 <div className="button">
-                    <button className="next-step-btn"><Link to="/thirdpage" state={{ isToggled: isToggled }} >Next Step</Link></button>
+                    <button className="next-step-btn"><Link to="/thirdpage" state={{ isToggled: isToggled, ref: boxText }} >Next Step</Link></button>
                     <button className='prev-page-btn'><Link to="/">Go Back</Link></button>
                 </div>
             </div>

@@ -9,7 +9,8 @@ import "./SecondPage"
 
 const ThirdPage = () => {
     const location = useLocation()
-    const toggleValue = location.state.isToggled
+    const toggleValue = location.state ? location.state.isToggled : false;
+    console.log(location.state);
 
     return (
         <div className="container">
@@ -91,7 +92,7 @@ const ThirdPage = () => {
                     </div>
                 </div>
                 <div className="button">
-                    <button className="next-step-btn"><Link to="/fourthpage">Next Step</Link></button>
+                    <button className="next-step-btn"><Link to="/fourthpage" state={{ ref: location?.state?.ref }} >Next Step</Link></button>
                     <button className='prev-page-btn'><Link to="/secondpage">Go Back</Link></button>
                 </div>
             </div>

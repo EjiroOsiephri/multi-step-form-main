@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import { useNavigate } from 'react-router-dom'
 import "./sass/FirstPage.scss"
 import "./sass/SecondPage.scss"
 import "./sass/ThirdPage.scss"
-import Arcade from "./images/icon-arcade.svg"
-import Advanced from "./images/icon-advanced.svg"
-import Pro from "./images/icon-pro.svg"
-import "./ThirdPage"
-import ThirdPage from './ThirdPage'
+import { useNavigate, useLocation } from 'react-router-dom'
 import "./sass/FourthPage.scss"
 
 const FourthPage = () => {
+    const location = useLocation()
+    console.log(location.state);
     return (
         <div className="container">
             <div className="first-container">
@@ -51,9 +48,23 @@ const FourthPage = () => {
                 </div>
             </div>
             <div className="second">
+                <h1>Finishing Up</h1>
+                <h4>Double-check everything looks OK before confirming.</h4>
+                <div className="fourth-container">
+                    <div className="arcade-text">
+                        <div className="link-text">
+                            <h3>Arcade(Monthly)</h3>
+                            <Link to="/secondpage">Change</Link>
+                        </div>
+                        <div className="amount-text">
+                            <p>{location?.state?.ref}</p>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
                 <div className="buttons">
                     <button className="next-step-btn"><Link to="/lastpage">Next Step</Link></button>
-                    <button className='prev-page-btn'><Link to="/thirdpage">Go Back</Link></button>
+                    <button className='prev-page-btn'><Link to="/thirdpage" >Go Back</Link></button>
                 </div>
             </div>
         </div>
