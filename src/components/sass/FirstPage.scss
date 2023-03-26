@@ -1,0 +1,223 @@
+$Marine-blue: hsl(213, 96%, 18%);
+$Purplish-blue: hsl(243, 100%, 62%);
+$Pastel-blue: hsl(228, 100%, 84%);
+$Light-blue: hsl(206, 94%, 87%);
+$Strawberry-red: hsl(354, 84%, 57%);
+$Cool-gray: hsl(231, 11%, 63%);
+$Light-gray: hsl(229, 24%, 87%);
+$Magnolia: hsl(217, 100%, 97%);
+$Alabaster: hsl(231, 100%, 99%);
+$White: hsl(0, 0%, 100%);
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+h1 {
+  margin: 0;
+}
+h2,
+h5,
+h6,
+p {
+  white-space: nowrap;
+}
+
+body {
+  background-color: $Magnolia;
+}
+
+.container {
+  background-color: $White;
+  padding: 1em;
+  margin: 0 auto;
+  min-width: 330px;
+}
+.first-container {
+  width: 100%;
+  background: url("../images/bg-sidebar-desktop.svg");
+  padding-top: 2em;
+  background-repeat: no-repeat;
+  padding-right: 12em;
+  padding-bottom: 12em;
+  margin-right: 1em;
+  border-radius: 10px;
+}
+.first-btn {
+  display: flex;
+}
+.text-flex {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+}
+.text-flex p {
+  margin-top: 10px;
+  margin-left: 10px;
+  white-space: nowrap;
+  color: $Strawberry-red;
+}
+.first-btn button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: $White;
+  font-weight: 600;
+  margin: -0.2em 0.9em 1.3em 0.9em;
+  font-size: 1.2rem;
+  border: 1px solid white;
+}
+
+.first-btn .btn-active {
+  background: $Light-blue;
+  color: $Marine-blue;
+  font-weight: 700;
+}
+
+.second-container h1 {
+  font-weight: 700;
+  color: $Marine-blue;
+  letter-spacing: 1.1px;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+label {
+  display: block;
+  margin: 0.6em 0;
+  color: $Marine-blue;
+  font-weight: 600;
+}
+.input {
+  width: 120%;
+  height: 40px;
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.5em;
+  font-size: 1rem;
+  border: 1px solid $Light-gray;
+  border-radius: 5px;
+}
+.second-container h4 {
+  color: $Cool-gray;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.next-step-btn {
+  width: 100px;
+  float: right;
+  padding: 0.8em;
+  font-weight: 700;
+  background-color: $Marine-blue;
+  border: none;
+  margin-top: 2em;
+  border-radius: 10px;
+}
+.next-step-btn {
+  color: $White;
+  text-decoration: none;
+}
+.next-step-btn a {
+  color: $White;
+  text-decoration: none;
+}
+.first-child {
+  color: $Marine-blue;
+  font-size: 1.1rem;
+}
+.typography:last-child {
+  color: $Light-gray;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 700px) {
+  .container {
+    display: flex;
+    max-width: 75%;
+    min-width: 950px;
+    justify-content: space-around;
+    margin-top: 1em;
+  }
+  .input {
+    width: 100%;
+  }
+  .first-container {
+    width: 45%;
+    padding-bottom: 10em;
+  }
+  .second-container {
+    width: 50%;
+  }
+  .first-btn button {
+    padding-top: 0.6em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    color: $White;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1px solid white;
+  }
+}
+
+@media (max-width: 699px) {
+  .container {
+    padding: 0;
+    background: none;
+  }
+  .first-container {
+    background: url("../images/bg-sidebar-mobile.svg");
+    width: 100%;
+    background-size: cover;
+    border-radius: 0;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding-bottom: 1em;
+    position: absolute;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: max-content;
+    margin-inline: auto;
+  }
+  .first-btn h3,
+  h2 {
+    display: none;
+  }
+  .second-container {
+    width: 95%;
+    margin: 0 auto;
+    background-color: $White;
+    position: relative;
+    border-radius: 5px;
+    top: 6em;
+    padding: 3em 4em;
+    z-index: 10;
+    box-shadow: 3px 3px 5px $Alabaster, 3px 3px 5px $Alabaster,
+      3px 3px 5px $Alabaster;
+  }
+  .second-container h1,
+  h2,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+  }
+  .first-btn {
+    display: initial;
+  }
+  .next-step-btn {
+    margin-top: 10px;
+  }
+}

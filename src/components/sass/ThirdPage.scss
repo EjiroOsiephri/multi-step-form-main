@@ -1,0 +1,33 @@
+@use "../sass/FirstPage.scss" as f;
+
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5em 1em;
+  height: 60px;
+  border: 1px solid f.$Marine-blue;
+  border-radius: 10px;
+  background-color: f.$White;
+  margin: 2em 0;
+}
+.grid-container:hover,
+.grid-container:focus {
+  background-color: f.$Magnolia;
+}
+.checkbox-container {
+  display: flex;
+}
+.checkbox-text {
+  margin-left: 1em;
+}
+.first-checkbox-text {
+  color: f.$Marine-blue;
+  font-size: 17px;
+}
+h6 {
+  color: f.$Cool-gray;
+}
+.amount h6 {
+  color: f.$Purplish-blue;
+}
