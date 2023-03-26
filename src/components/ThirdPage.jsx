@@ -7,10 +7,9 @@ import "./SecondPage"
 
 
 
-const ThirdPage = ({ isToggled }) => {
+const ThirdPage = () => {
     const location = useLocation()
-    const toggledValue = location.state.isToggled
-    console.log(toggledValue);
+    const toggleValue = location.state.isToggled
 
     return (
         <div className="container">
@@ -63,7 +62,7 @@ const ThirdPage = ({ isToggled }) => {
                             </div>
                         </div>
                         <div className="amount">
-                            {toggledValue ? <h6>10/yr</h6> : <h6>+$1/mo</h6>}
+                            {toggleValue ? <h6>10/yr</h6> : <h6>+$1/mo</h6>}
                         </div>
                     </div>
                     <div className="grid-container">
@@ -75,7 +74,7 @@ const ThirdPage = ({ isToggled }) => {
                             </div>
                         </div>
                         <div className="amount">
-                            {toggledValue ? <h6>20/yr</h6> : <h6>+$2/mo</h6>}
+                            {toggleValue ? <h6>20/yr</h6> : <h6>+$2/mo</h6>}
                         </div>
                     </div>
                     <div className="grid-container">
@@ -87,7 +86,7 @@ const ThirdPage = ({ isToggled }) => {
                             </div>
                         </div>
                         <div className="amount">
-                            {toggledValue ? <h6>20/yr</h6> : <h6>+$2/mo</h6>}
+                            {toggleValue ? <h6>20/yr</h6> : <h6>+$2/mo</h6>}
                         </div>
                     </div>
                 </div>
