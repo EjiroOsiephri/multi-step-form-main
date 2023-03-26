@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import "./sass/FirstPage.scss"
 import "./sass/SecondPage.scss"
@@ -8,7 +8,18 @@ import "./sass/FourthPage.scss"
 
 const FourthPage = () => {
     const location = useLocation()
-    console.log(location.state);
+    console.log(location.state.ref);
+    const [changeTime, setChangeTime] = useState(location.state.ref.endsWith('/yr') ? 'Yearly' : 'Monthly');
+    const [totalMonthly, setTotalMonthly] = useState(location.state.ref.endsWith('/yr') ? 20 : 2);
+
+    useEffect(() => {
+        if (location.state.ref.endsWith('/yr')) {
+            setTotalMonthly(prevTotal => prevTotal + 10);
+        } else if (location.state.ref.endsWith('/mo')) {
+            setTotalMonthly(prevTotal => prevTotal + 1);
+        }
+    }, []);
+
     return (
         <div className="container">
             <div className="first-container">
@@ -53,7 +64,7 @@ const FourthPage = () => {
                 <div className="fourth-container">
                     <div className="arcade-text">
                         <div className="link-text">
-                            <h3>Arcade(Monthly)</h3>
+                            <h3>Arcade({changeTime})</h3>
                             <Link to="/secondpage">Change</Link>
                         </div>
                         <div className="amount-text">
@@ -61,6 +72,18 @@ const FourthPage = () => {
                         </div>
                     </div>
                     <hr />
+                    <div className="online-container">
+                        <h3>Online Service</h3>
+                        <p> <p>{location.state.ref.endsWith('/yr') ? '$10 per Year' : '$1 per Month'}</p></p>
+                    </div>
+                    <div className="larger-storage">
+                        <h3>Larger Storage</h3>
+                        <p> <p>{location.state.ref.endsWith('/yr') ? '$20 per Year' : '$2 per Month'}</p></p>
+                    </div>
+                    <div className="final-text">
+                        <h3>Total({changeTime})</h3>
+                        <p>+${totalMonthly}{changeTime}</p>
+                    </div>
                 </div>
                 <div className="buttons">
                     <button className="next-step-btn"><Link to="/lastpage">Next Step</Link></button>

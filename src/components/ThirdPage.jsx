@@ -56,7 +56,7 @@ const ThirdPage = () => {
                 <div className="add-on-grid">
                     <div className="grid-container">
                         <div className="checkbox-container">
-                            <input type='checkbox' />
+                            <input type='checkbox' checked />
                             <div className="checkbox-text">
                                 <h6 className='first-checkbox-text'>Online service</h6>
                                 <h6>Access to multiplayer games</h6>
@@ -68,7 +68,7 @@ const ThirdPage = () => {
                     </div>
                     <div className="grid-container">
                         <div className="checkbox-container">
-                            <input type='checkbox' />
+                            <input type='checkbox' checked />
                             <div className="checkbox-text">
                                 <h6 className='first-checkbox-text'>Larger storage</h6>
                                 <h6>Extra 1TB of cloud save</h6>
