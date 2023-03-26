@@ -1,0 +1,41 @@
+@use "./FirstPage.scss" as u;
+.align-summary {
+  margin-top: 4em;
+}
+.align-summary h3 {
+  text-align: center;
+  color: u.$Marine-blue;
+  font-size: 25px;
+}
+.align-summary .h3-text {
+  margin-top: 2em;
+  letter-spacing: 1.5px;
+  color: u.$Cool-gray;
+  font-size: 15px;
+  text-align: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.prev-btn {
+  margin-top: 8em;
+  order: 1;
+  background: none;
+  border: none;
+  padding-top: 2em;
+  font-weight: 700;
+}
+.prev-btn a {
+  text-decoration: none;
+  color: u.$Cool-gray;
+}
+.prev-btn a:hover {
+  color: u.$Marine-blue;
+  font-weight: 700;
+}
+.img-thank-you {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}

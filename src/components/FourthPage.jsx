@@ -8,14 +8,13 @@ import "./sass/FourthPage.scss"
 
 const FourthPage = () => {
     const location = useLocation()
-    console.log(location.state.ref);
-    const [changeTime, setChangeTime] = useState(location.state.ref.endsWith('/yr') ? 'Yearly' : 'Monthly');
-    const [totalMonthly, setTotalMonthly] = useState(location.state.ref.endsWith('/yr') ? 20 : 2);
+    const [changeTime, setChangeTime] = useState(location.state?.ref?.endsWith('/yr') ? 'Yearly' : 'Monthly');
+    const [totalMonthly, setTotalMonthly] = useState(location.state?.ref?.endsWith('/yr') ? 20 : 2);
 
     useEffect(() => {
-        if (location.state.ref.endsWith('/yr')) {
+        if (location.state?.ref?.endsWith('/yr')) {
             setTotalMonthly(prevTotal => prevTotal + 10);
-        } else if (location.state.ref.endsWith('/mo')) {
+        } else if (location.state?.ref?.endsWith('/mo')) {
             setTotalMonthly(prevTotal => prevTotal + 1);
         }
     }, []);
@@ -74,11 +73,11 @@ const FourthPage = () => {
                     <hr />
                     <div className="online-container">
                         <h3>Online Service</h3>
-                        <p> <p>{location.state.ref.endsWith('/yr') ? '$10 per Year' : '$1 per Month'}</p></p>
+                        <p> <p>{location.state?.ref?.endsWith('/yr') ? '$10 per Year' : '$1 per Month'}</p></p>
                     </div>
                     <div className="larger-storage">
                         <h3>Larger Storage</h3>
-                        <p> <p>{location.state.ref.endsWith('/yr') ? '$20 per Year' : '$2 per Month'}</p></p>
+                        <p> <p>{location.state?.ref?.endsWith('/yr') ? '$20 per Year' : '$2 per Month'}</p></p>
                     </div>
                     <div className="final-text">
                         <h3>Total({changeTime})</h3>

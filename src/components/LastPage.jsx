@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import "./sass/SecondPage.scss"
 import { Link } from "react-router-dom"
 import { useNavigate, useLocation } from 'react-router-dom'
+import thankyou from "./images/icon-thank-you.svg"
+import "./sass/LastPage.scss"
 
 const LastPage = () => {
     return (
@@ -43,11 +45,20 @@ const LastPage = () => {
                 </div>
             </div>
             <div className="second">
-
+                <div className="align-summary">
+                    <div className="img-thank-you">
+                        <img src={thankyou} alt="" />
+                    </div>
+                    <h3 c>Thank You</h3>
+                    <h3 className='h3-text'>Thanks for confirming your subscription! We hope you have fun
+                        using our platform. If you ever need support, please feel free
+                        to email us at support@loremgaming.com.</h3>
+                </div>
                 <div className="buttons">
-                    <button className='prev-page-btn'><Link to="/thirdpage" >Go Back</Link></button>
+                    <button className='prev-btn'><Link to="/fourthpage" >Go Back</Link></button>
                 </div>
             </div>
+
         </div>
 
     )
