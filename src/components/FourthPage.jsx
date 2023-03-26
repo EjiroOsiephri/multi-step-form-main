@@ -86,7 +86,7 @@ const FourthPage = () => {
                     </div>
                 </div>
                 <div className="buttons">
-                    <button className="next-step-btn"><Link to="/lastpage">Next Step</Link></button>
+                    <button className="next-step-btn"><Link to="/lastpage">Confirm</Link></button>
                     <button className='prev-page-btn'><Link to="/thirdpage" >Go Back</Link></button>
                 </div>
             </div>
